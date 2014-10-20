@@ -1,0 +1,57 @@
+﻿@model sb_admin.web.Models.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .form-signin {
+    margin: 0 auto;
+    max-width: 330px;
+    padding: 15px;
+}
+</style>
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Login
+            </h1>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "form-signin", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
+        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "UserName" })
+            @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+        <br />
+         @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+
+        <label class="checkbox">
+            @Html.CheckBoxFor(m => m.RememberMe)
+            Remember me
+        </label>
+        <input type="submit" value="Log in" class="btn btn-lg btn-primary btn-block" />
+    }
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>
+<!-- /.container-fluid -->
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

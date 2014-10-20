@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin - Bootstrap Admin Template</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="@Url.Content("~/Content/plugins/morris.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/font-awesome-4.1.0/css/font-awesome.min.css")" rel="stylesheet" type="text/css" />
+</head>
+
+<body>   
+    <div id="wrapper">
+        @Html.Action("Navbar", "Navbar", new { controller = ViewContext.RouteData.Values["Controller"].ToString(), action = ViewContext.RouteData.Values["Action"].ToString() })
+
+        <div id="page-wrapper">           
+            @RenderBody()
+        </div>
+    </div>
+    <!-- /#wrapper -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="@Url.Content("~/Scripts/plugins/morris/raphael.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/plugins/morris/morris.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/plugins/morris/morris.js")"></script>
+    <script src="@Url.Content("~/Scripts/plugins/morris/morris-data.js")"></script>
+
+    <!-- Flot Charts JavaScript -->
+    <!--[if lte IE 8]><script src="js/excanvas.min.js"></script><![endif]-->
+    <script src="@Url.Content("~/Scripts/plugins/flot/jquery.flot.js")"></script>
+    <script src="@Url.Content("~/Scripts/plugins/flot/jquery.flot.tooltip.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/plugins/flot/jquery.flot.resize.js")"></script>
+    <script src="@Url.Content("~/Scripts/plugins/flot/jquery.flot.pie.js")"></script>
+    <script src="@Url.Content("~/Scripts/plugins/flot/flot-data.js")"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
