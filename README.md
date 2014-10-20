@@ -9,9 +9,6 @@ sb-admin Bootstrap template with ASP MVC and Owin Authentication
 - Owin Authentication Security.
 - Dynamic Navbar.
 
-### Download
-* [Download dbyll](https://github.com/dbtek/dbyll/archive/master.zip)
-
 ### Screenshots
 
 ![dbyll-screenshot](sb-admin.web/Content/images/sb-admin.png)
